@@ -98,12 +98,14 @@ else
 endif
 let g:startify_files_number = 5
 let g:startify_lists = [
-  \ { 'type': 'files',     'header': ['   MRU']            },
-  \ { 'type': 'commands',  'header': ['   Commands']       }
+  \ { 'type': 'files',     'header': ['   MRU']       },
+  \ { 'type': 'commands',  'header': ['   Commands']  },
+  \ { 'type': 'bookmarks', 'header': ['   Bookmarks'] }
   \ ]
 let g:startify_commands = [
   \ ['Vim Reference', 'h ref']
   \ ]
+let g:startify_bookmarks = [ {'nvim': '~/.config/nvim/init.vim'} ]
 
 " junegunn/vim-easy-align
 xmap ga <Plug>(EasyAlign)
