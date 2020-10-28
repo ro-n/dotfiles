@@ -1,9 +1,8 @@
 {
-    "tabnine.experimentalAutoImports": true,
     "workbench.iconTheme": "material-icon-theme",
-    "workbench.colorTheme": "Summer Time",
 
     "vim.easymotion": true,
+    "vim.surround": true,
     "vim.incsearch": true,
     "vim.useSystemClipboard": false,
     "vim.useCtrlKeys": true,
@@ -25,5 +24,13 @@
     "vim.handleKeys": {
         "<C-a>": false,
         "<C-f>": false
-    }
+    },
+    "editor.suggestSelection": "first",
+    "workbench.colorTheme": "Summer Time",
+    "editor.tabSize": 2,
+    "editor.detectIndentation": false,
+    "editor.fontSize": 16,
+    "[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
 }
