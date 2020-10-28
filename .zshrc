@@ -5,11 +5,11 @@ export PATH=$HOME/.local/bin:$PATH
 export PATH="/usr/local/opt/llvm@8/bin:$PATH"
 
 ZSH_THEME="typewritten"
-TYPEWRITTEN_PROMPT_LAYOUT="singleline_verbose"
-TYPEWRITTEN_SYMBOL="#"
+TYPEWRITTEN_PROMPT_LAYOUT="singleline"
+TYPEWRITTEN_SYMBOL="❯"
 TYPEWRITTEN_GIT_RELATIVE_PATH=true
 TYPEWRITTEN_CURSOR="underscore"
-TYPEWRITTEN_RIGHT_PROMPT_PREFIX="# "
+TYPEWRITTEN_RIGHT_PROMPT_PREFIX="🎏 "
 
 plugins=(git)
 
@@ -26,3 +26,9 @@ alias u="export http_proxy=''; export https_proxy='';"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] && source "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+export NVM_NODEJS_ORG_MIRROR=https://npm.taobao.org/mirrors/node/
+
