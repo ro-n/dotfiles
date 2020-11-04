@@ -61,6 +61,8 @@ set shiftwidth=2
 set softtabstop=2
 set tabstop=2
 
+set conceallevel=0
+
 let mapleader = ','
 
 nnoremap <Up>    :resize          +2<CR>
@@ -105,7 +107,11 @@ let g:startify_lists = [
 let g:startify_commands = [
   \ ['Vim Reference', 'h ref']
   \ ]
-let g:startify_bookmarks = [ {'nvim': '~/.config/nvim/init.vim'} ]
+let g:startify_bookmarks = [ 
+  \ { 'nvim':  '~/.config/nvim/init.vim' },
+  \ { 'yabai': '~/.yabairc' },
+  \ { 'zsh':   '~/.zshrc' }
+  \ ]
 
 " junegunn/vim-easy-align
 xmap ga <Plug>(EasyAlign)
@@ -168,3 +174,8 @@ nnoremap <leader>v <cmd>CHADopen<cr>
 
 " vifm.vim
 map <Space> :EditVifm .<CR>
+
+" nerdcommenter
+let g:NERDSpaceDelims     = 1
+let g:NERDCompactSexyComs = 1
+
