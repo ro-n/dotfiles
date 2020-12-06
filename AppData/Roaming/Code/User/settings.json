@@ -40,11 +40,12 @@
   ],
   "vim.leader": ",",
   "vim.handleKeys": {
-    "<C-a>": false,
-    "<C-f>": false
+    "<C-a>": true,
+    "<C-x>": true
   },
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "editor.fontSize": 16
+  "editor.fontSize": 16,
+  "python.pythonPath": "C:\\Python38\\python.exe"
 }
