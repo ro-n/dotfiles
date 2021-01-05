@@ -1,8 +1,11 @@
 export GOPATH="$HOME/go"
 export PATH="/usr/local/opt/llvm@8/bin:$PATH"
+export PATH="/usr/local/opt/ruby/bin:$PATH"
 export PATH=$GOPATH/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/flutter/bin:$PATH
+export PUB_HOSTED_URL=https://pub.flutter-io.cn
+export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
 export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="typewritten"
