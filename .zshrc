@@ -20,6 +20,7 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 alias c="clear"
+alias cr="code --reuse-window ."
 alias e="export http_proxy=http://127.0.0.1:1087; export https_proxy=http://127.0.0.1:1087;"
 alias ec="export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7891"
 alias o="open ."
