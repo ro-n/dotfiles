@@ -2,51 +2,6 @@ if &compatible
   set nocompatible
 endif
 
-set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
-
-if dein#load_state('~/.cache/dein')
-  call dein#begin('~/.cache/dein')
-
-  call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
-  
-  " Completion
-  call dein#add('Shougo/deoplete.nvim')
-  call dein#add('Shougo/neosnippet-snippets')
-  call dein#add('Shougo/neosnippet.vim')
-
-  " C++
-  call dein#add('Shougo/deoplete-clangx')
-  " Go
-  " Java
-  " Python
-  call dein#add('deoplete-plugins/deoplete-jedi')
-  " TypeScript
-  " VimScript
-  call dein#add('Shougo/neco-vim')
-
-  " Appearance
-  call dein#add('junegunn/goyo.vim')
-  call dein#add('junegunn/limelight.vim')
-  call dein#add('junegunn/seoul256.vim')
-
-  " Others
-  call dein#add('jiangmiao/auto-pairs')
-  call dein#add('junegunn/vim-easy-align')
-  call dein#add('matze/vim-move')
-  call dein#add('mhinz/vim-startify')
-  call dein#add('ms-jpq/chadtree')
-  call dein#add('preservim/nerdcommenter')
-  call dein#add('ryanoasis/vim-devicons')
-  call dein#add('tpope/vim-repeat')
-  call dein#add('tpope/vim-surround')
-  call dein#add('vifm/vifm.vim')
-  call dein#add('voldikss/vim-translator')
-  call dein#add('yuttie/comfortable-motion.vim')
-
-  call dein#end()
-  call dein#save_state()
-endif
-
 filetype plugin indent on
 syntax enable
 
@@ -82,6 +37,16 @@ set statusline+=%=
 set statusline+=\ %p%%
 set statusline+=\ [%n]
 
+call plug#begin(stdpath('config') . '/plugged')
+
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+Plug 'junegunn/seoul256.vim'
+Plug 'mhinz/vim-startify'
+Plug 'yuttie/comfortable-motion.vim'
+
+call plug#end()
+
 " vim-startify
 autocmd VimEnter *
   \   if !argc()
@@ -108,27 +73,9 @@ let g:startify_commands = [
   \ ['Vim Reference', 'h ref']
   \ ]
 let g:startify_bookmarks = [ 
-  \ { 'nvim':  '~/.config/nvim/init.vim' },
-  \ { 'yabai': '~/.yabairc' },
+  \ { 'nvim':  '~/.vimrc' },
   \ { 'zsh':   '~/.zshrc' }
   \ ]
-
-" junegunn/vim-easy-align
-xmap ga <Plug>(EasyAlign)
-nmap ga <Plug>(EasyAlign)
-
-" deoplete.nvim 
-let g:deoplete#enable_at_startup = 1
-
-" neosnippet.vim
-imap <C-k> <Plug>(neosnippet_expand_or_jump)
-smap <C-k> <Plug>(neosnippet_expand_or_jump)
-xmap <C-k> <Plug>(neosnippet_expand_target)
-imap <expr><TAB>
-  \ pumvisible() ? "\<C-n>" :
-  \ neosnippet#expandable_or_jumpable() ?
-  \   "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
 " limelight.vim
 nmap <Leader>l <Plug>(Limelight)
@@ -155,27 +102,9 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 let g:seoul256_background = 236
 colorscheme seoul256
 
-" vim-move
-let g:move_key_modifier = 'C'
-
 " comfortable-motion.vim
 let g:comfortable_motion_no_default_key_mappings = 1
 nnoremap <silent> <C-d> :call comfortable_motion#flick(50)<CR>
 nnoremap <silent> <C-u> :call comfortable_motion#flick(-50)<CR>
 nnoremap <silent> <C-f> :call comfortable_motion#flick(200)<CR>
 nnoremap <silent> <C-b> :call comfortable_motion#flick(-200)<CR>
-
-" vim-translator
-nmap <silent> <Leader>t <Plug>Translate
-vmap <silent> <Leader>t <Plug>TranslateV
-
-" chadtree
-nnoremap <leader>v <cmd>CHADopen<cr>
-
-" vifm.vim
-map <Space> :EditVifm .<CR>
-
-" nerdcommenter
-let g:NERDSpaceDelims     = 1
-let g:NERDCompactSexyComs = 1
-
