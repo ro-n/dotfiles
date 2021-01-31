@@ -16,6 +16,8 @@ set shiftwidth=2
 set softtabstop=2
 set tabstop=2
 
+set updatetime=300
+
 set conceallevel=0
 
 let mapleader = ','
@@ -28,58 +30,23 @@ nnoremap <Right> :vertical resize -2<CR>
 nnoremap <Leader>/ :nohl <CR>
 nnoremap Q <nop>
 
-set statusline=
-set statusline+=\ %F
-set statusline+=\ %M
-set statusline+=\ %r
-set statusline+=\ %y
-set statusline+=%=
-set statusline+=\ %p%%
-set statusline+=\ [%n]
-
 call plug#begin(stdpath('config') . '/plugged')
 
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/seoul256.vim'
-Plug 'mhinz/vim-startify'
 Plug 'yuttie/comfortable-motion.vim'
 
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+Plug 'glepnir/dashboard-nvim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+
+
 call plug#end()
-
-" vim-startify
-autocmd VimEnter *
-  \   if !argc()
-  \ |   Startify
-  \ |   wincmd w
-  \ | endif
-if has('nvim')
-  autocmd TabNewEntered * Startify
-else
-  autocmd VimEnter * let t:startify_new_tab = 1
-  autocmd BufEnter *
-    \ if !exists('t:startify_new_tab') && empty(expand('%')) |
-    \   let t:startify_new_tab = 1 |
-    \   Startify |
-    \ endif
-endif
-let g:startify_files_number = 5
-let g:startify_lists = [
-  \ { 'type': 'files',     'header': ['   MRU']       },
-  \ { 'type': 'commands',  'header': ['   Commands']  },
-  \ { 'type': 'bookmarks', 'header': ['   Bookmarks'] }
-  \ ]
-let g:startify_commands = [
-  \ ['Vim Reference', 'h ref']
-  \ ]
-let g:startify_bookmarks = [ 
-  \ { 'nvim':  '~/.vimrc' },
-  \ { 'zsh':   '~/.zshrc' }
-  \ ]
-
-" limelight.vim
-nmap <Leader>l <Plug>(Limelight)
-xmap <Leader>l <Plug>(Limelight)
 
 " goyo.vim
 map <ENTER> :Goyo<CR>
@@ -108,3 +75,29 @@ nnoremap <silent> <C-d> :call comfortable_motion#flick(50)<CR>
 nnoremap <silent> <C-u> :call comfortable_motion#flick(-50)<CR>
 nnoremap <silent> <C-f> :call comfortable_motion#flick(200)<CR>
 nnoremap <silent> <C-b> :call comfortable_motion#flick(-200)<CR>
+
+" dashboard-nvim
+let g:dashboard_default_executive ='fzf'
+
+nmap <Leader>ss :<C-u>SessionSave<CR>
+nmap <Leader>sl :<C-u>SessionLoad<CR>
+
+nnoremap <silent> <Leader>fh :DashboardFindHistory<CR>
+nnoremap <silent> <Leader>ff :DashboardFindFile<CR>
+nnoremap <silent> <Leader>tc :DashboardChangeColorscheme<CR>
+nnoremap <silent> <Leader>fa :DashboardFindWord<CR>
+nnoremap <silent> <Leader>fb :DashboardJumpMark<CR>
+nnoremap <silent> <Leader>cn :DashboardNewFile<CR>
+
+let g:dashboard_custom_header = [
+  \'   ⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣤⣴⣶⣶⣶⣶⣶⠶⣶⣤⣤⣀⠀⠀⠀⠀⠀⠀ ',
+  \' ⠀⠀⠀⠀⠀⠀⠀⢀⣤⣾⣿⣿⣿⠁⠀⢀⠈⢿⢀⣀⠀⠹⣿⣿⣿⣦⣄⠀⠀⠀ ',
+  \' ⠀⠀⠀⠀⠀⠀⣴⣿⣿⣿⣿⣿⠿⠀⠀⣟⡇⢘⣾⣽⠀⠀⡏⠉⠙⢛⣿⣷⡖⠀ ',
+  \' ⠀⠀⠀⠀⠀⣾⣿⣿⡿⠿⠷⠶⠤⠙⠒⠀⠒⢻⣿⣿⡷⠋⠀⠴⠞⠋⠁⢙⣿⣄ ',
+  \' ⠀⠀⠀⠀⢸⣿⣿⣯⣤⣤⣤⣤⣤⡄⠀⠀⠀⠀⠉⢹⡄⠀⠀⠀⠛⠛⠋⠉⠹⡇ ',
+  \' ⠀⠀⠀⠀⢸⣿⣿⠀⠀⠀⣀⣠⣤⣤⣤⣤⣤⣤⣤⣼⣇⣀⣀⣀⣛⣛⣒⣲⢾⡷ ',
+  \' ⢀⠤⠒⠒⢼⣿⣿⠶⠞⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠁⠀⣼⠃ ',
+  \' ⢮⠀⠀⠀⠀⣿⣿⣆⠀⠀⠻⣿⡿⠛⠉⠉⠁⠀⠉⠉⠛⠿⣿⣿⠟⠁⠀⣼⠃⠀ ',
+  \' ⠈⠓⠶⣶⣾⣿⣿⣿⣧⡀⠀⠈⠒⢤⣀⣀⡀⠀⠀⣀⣀⡠⠚⠁⠀⢀⡼⠃⠀⠀ ',
+  \' ⠀⠀⠀⠈⢿⣿⣿⣿⣿⣿⣷⣤⣤⣤⣤⣭⣭⣭⣭⣭⣥⣤⣤⣤⣴⣟⠁    ',
+  \ ]
