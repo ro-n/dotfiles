@@ -2,6 +2,7 @@ if &compatible
   set nocompatible
 endif
 
+
 filetype plugin indent on
 syntax enable
 
@@ -44,7 +45,9 @@ Plug 'glepnir/dashboard-nvim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+Plug 'arcticicestudio/nord-vim'
 
 call plug#end()
 
@@ -67,7 +70,8 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 " seoul256.vim
 let g:seoul256_background = 236
-colorscheme seoul256
+" colorscheme seoul256
+colorscheme nord
 
 " comfortable-motion.vim
 let g:comfortable_motion_no_default_key_mappings = 1
@@ -101,3 +105,17 @@ let g:dashboard_custom_header = [
   \' ⠈⠓⠶⣶⣾⣿⣿⣿⣧⡀⠀⠈⠒⢤⣀⣀⡀⠀⠀⣀⣀⡠⠚⠁⠀⢀⡼⠃⠀⠀ ',
   \' ⠀⠀⠀⠈⢿⣿⣿⣿⣿⣿⣷⣤⣤⣤⣤⣭⣭⣭⣭⣭⣥⣤⣤⣤⣴⣟⠁    ',
   \ ]
+
+" coc.nvim
+inoremap <silent><expr> <TAB>
+  \ pumvisible() ? "\<C-n>" :
+  \ <SID>check_back_space() ? "\<TAB>" :
+  \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+inoremap <silent><expr> <c-space> coc#refresh()
