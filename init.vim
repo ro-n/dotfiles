@@ -23,6 +23,8 @@ set conceallevel=0
 
 let mapleader = ','
 
+set mouse=a
+
 nnoremap <Up>    :resize          +2<CR>
 nnoremap <Down>  :resize          -2<CR>
 nnoremap <Left>  :vertical resize +2<CR>
@@ -37,6 +39,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/seoul256.vim'
 Plug 'yuttie/comfortable-motion.vim'
+Plug 'arcticicestudio/nord-vim'
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -47,11 +50,12 @@ Plug 'junegunn/fzf.vim'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-Plug 'arcticicestudio/nord-vim'
+Plug 'tpope/vim-commentary'
 
 call plug#end()
 
-" goyo.vim
+" goyo.vim & limelight.vim
+let g:limelight_conceal_ctermfg = 'DarkGrey' 
 map <ENTER> :Goyo<CR>
 function! s:goyo_enter()
   set noshowmode
@@ -93,18 +97,26 @@ nnoremap <silent> <Leader>fa :DashboardFindWord<CR>
 nnoremap <silent> <Leader>fb :DashboardJumpMark<CR>
 nnoremap <silent> <Leader>cn :DashboardNewFile<CR>
 
-let g:dashboard_custom_header = [
-  \'   ⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣤⣴⣶⣶⣶⣶⣶⠶⣶⣤⣤⣀⠀⠀⠀⠀⠀⠀ ',
-  \' ⠀⠀⠀⠀⠀⠀⠀⢀⣤⣾⣿⣿⣿⠁⠀⢀⠈⢿⢀⣀⠀⠹⣿⣿⣿⣦⣄⠀⠀⠀ ',
-  \' ⠀⠀⠀⠀⠀⠀⣴⣿⣿⣿⣿⣿⠿⠀⠀⣟⡇⢘⣾⣽⠀⠀⡏⠉⠙⢛⣿⣷⡖⠀ ',
-  \' ⠀⠀⠀⠀⠀⣾⣿⣿⡿⠿⠷⠶⠤⠙⠒⠀⠒⢻⣿⣿⡷⠋⠀⠴⠞⠋⠁⢙⣿⣄ ',
-  \' ⠀⠀⠀⠀⢸⣿⣿⣯⣤⣤⣤⣤⣤⡄⠀⠀⠀⠀⠉⢹⡄⠀⠀⠀⠛⠛⠋⠉⠹⡇ ',
-  \' ⠀⠀⠀⠀⢸⣿⣿⠀⠀⠀⣀⣠⣤⣤⣤⣤⣤⣤⣤⣼⣇⣀⣀⣀⣛⣛⣒⣲⢾⡷ ',
-  \' ⢀⠤⠒⠒⢼⣿⣿⠶⠞⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠁⠀⣼⠃ ',
-  \' ⢮⠀⠀⠀⠀⣿⣿⣆⠀⠀⠻⣿⡿⠛⠉⠉⠁⠀⠉⠉⠛⠿⣿⣿⠟⠁⠀⣼⠃⠀ ',
-  \' ⠈⠓⠶⣶⣾⣿⣿⣿⣧⡀⠀⠈⠒⢤⣀⣀⡀⠀⠀⣀⣀⡠⠚⠁⠀⢀⡼⠃⠀⠀ ',
-  \' ⠀⠀⠀⠈⢿⣿⣿⣿⣿⣿⣷⣤⣤⣤⣤⣭⣭⣭⣭⣭⣥⣤⣤⣤⣴⣟⠁    ',
-  \ ]
+let g:dashboard_custom_header =[
+    \'          ▀████▀▄▄              ▄█ ',
+    \'            █▀    ▀▀▄▄▄▄▄    ▄▄▀▀█ ',
+    \'    ▄        █          ▀▀▀▀▄  ▄▀  ',
+    \'   ▄▀ ▀▄      ▀▄              ▀▄▀  ',
+    \'  ▄▀    █     █▀   ▄█▀▄      ▄█    ',
+    \'  ▀▄     ▀▄  █     ▀██▀     ██▄█   ',
+    \'   ▀▄    ▄▀ █   ▄██▄   ▄  ▄  ▀▀ █  ',
+    \'    █  ▄▀  █    ▀██▀    ▀▀ ▀▀  ▄▀  ',
+    \'   █   █  █      ▄▄           ▄▀   ',
+    \]
+
+let g:dashboard_custom_shortcut_icon = {}
+let g:dashboard_custom_shortcut_icon['last_session'] = '⏳ '
+let g:dashboard_custom_shortcut_icon['find_history'] = '📜 '
+let g:dashboard_custom_shortcut_icon['find_file'] = '📂 '
+let g:dashboard_custom_shortcut_icon['new_file'] = '✨ '
+let g:dashboard_custom_shortcut_icon['change_colorscheme'] = '🍭 '
+let g:dashboard_custom_shortcut_icon['find_word'] = '🈁 '
+let g:dashboard_custom_shortcut_icon['book_marks'] = '🏷️  '
 
 " coc.nvim
 inoremap <silent><expr> <TAB>

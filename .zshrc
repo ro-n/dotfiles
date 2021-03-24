@@ -16,6 +16,8 @@ source $ZSH/oh-my-zsh.sh
 export PATH="/usr/local/opt/icu4c/bin:$PATH"
 export PATH="/usr/local/opt/icu4c/sbin:$PATH"
 
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 
 MONO_GAC_PREFIX="/usr/local"
