@@ -24,3 +24,4 @@ MONO_GAC_PREFIX="/usr/local"
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 
 export PATH="/usr/local/opt/llvm/bin:$PATH"
+export PATH="/usr/local/opt/llvm/bin:$PATH"

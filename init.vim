@@ -52,6 +52,17 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'tpope/vim-commentary'
 
+Plug 'junegunn/vim-easy-align'
+
+Plug 'preservim/nerdtree'
+Plug 'ryanoasis/vim-devicons'
+Plug 'scrooloose/nerdtree-project-plugin'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'PhilRunninger/nerdtree-visual-selection'
+Plug 'jistr/vim-nerdtree-tabs'
+
+Plug 'justinmk/vim-sneak'
+
 call plug#end()
 
 " goyo.vim & limelight.vim
@@ -76,6 +87,9 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 let g:seoul256_background = 236
 " colorscheme seoul256
 colorscheme nord
+
+" vim-airline/vim-airline
+let g:airline#extensions#tabline#enabled = 1
 
 " comfortable-motion.vim
 let g:comfortable_motion_no_default_key_mappings = 1
@@ -109,14 +123,20 @@ let g:dashboard_custom_header =[
     \'   █   █  █      ▄▄           ▄▀   ',
     \]
 
-let g:dashboard_custom_shortcut_icon = {}
-let g:dashboard_custom_shortcut_icon['last_session'] = '⏳ '
-let g:dashboard_custom_shortcut_icon['find_history'] = '📜 '
-let g:dashboard_custom_shortcut_icon['find_file'] = '📂 '
-let g:dashboard_custom_shortcut_icon['new_file'] = '✨ '
+let g:dashboard_custom_shortcut_icon                       = {}
+let g:dashboard_custom_shortcut_icon['last_session']       = '⏳ '
+let g:dashboard_custom_shortcut_icon['find_history']       = '📜 '
+let g:dashboard_custom_shortcut_icon['find_file']          = '📂 '
+let g:dashboard_custom_shortcut_icon['new_file']           = '✨ '
 let g:dashboard_custom_shortcut_icon['change_colorscheme'] = '🍭 '
-let g:dashboard_custom_shortcut_icon['find_word'] = '🈁 '
-let g:dashboard_custom_shortcut_icon['book_marks'] = '🏷️  '
+let g:dashboard_custom_shortcut_icon['find_word']          = '🈁 '
+let g:dashboard_custom_shortcut_icon['book_marks']         = '🏷️  '
+
+" let g:dashboard_custom_section = {
+"   \ 'buffer_list': {
+"       \ 'description': [' Recently lase session                 SPC b b'],
+"       \ 'command': ':e .vimrc'}
+"   \ }
 
 " coc.nvim
 inoremap <silent><expr> <TAB>
@@ -131,3 +151,16 @@ function! s:check_back_space() abort
 endfunction
 
 inoremap <silent><expr> <c-space> coc#refresh()
+
+" preservim/nerdtree
+nnoremap <leader>n :NERDTreeTabsToggle<CR>
+let g:NERDTreeWinPos     = "right"
+let g:NERDTreeWinSize    = 60
+let g:NERDTreeShowHidden = 1
+
+" junegunn/vim-easy-align
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
+
+" justinmk/vim-sneak
+highlight link Sneak Search
