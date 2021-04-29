@@ -27,3 +27,4 @@ export PATH="/usr/local/opt/llvm/bin:$PATH"
 export PATH="/usr/local/opt/llvm/bin:$PATH"
 
 export EDITOR=nvim
+export PATH="/usr/local/opt/sqlite/bin:$PATH"

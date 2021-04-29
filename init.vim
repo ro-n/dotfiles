@@ -63,6 +63,11 @@ Plug 'jistr/vim-nerdtree-tabs'
 
 Plug 'justinmk/vim-sneak'
 
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-entire'
+Plug 'kana/vim-textobj-function'
+Plug 'christoomey/vim-system-copy'
+
 call plug#end()
 
 " goyo.vim & limelight.vim
