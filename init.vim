@@ -2,6 +2,7 @@ if &compatible
   set nocompatible
 endif
 
+let g:python_recommended_style = 0
 
 filetype plugin indent on
 syntax enable
@@ -32,6 +33,19 @@ nnoremap <Right> :vertical resize -2<CR>
 
 nnoremap <Leader>/ :nohl <CR>
 nnoremap Q <nop>
+
+let g:python3_host_prog = '/usr/local/bin/python3'
+
+noremap <leader>1 1gt
+noremap <leader>2 2gt
+noremap <leader>3 3gt
+noremap <leader>4 4gt
+noremap <leader>5 5gt
+noremap <leader>6 6gt
+noremap <leader>7 7gt
+noremap <leader>8 8gt
+noremap <leader>9 9gt
+noremap <leader>0 :tablast<cr>
 
 call plug#begin(stdpath('config') . '/plugged')
 
@@ -68,6 +82,11 @@ Plug 'kana/vim-textobj-entire'
 Plug 'kana/vim-textobj-function'
 Plug 'christoomey/vim-system-copy'
 
+Plug 'jiangmiao/auto-pairs'
+
+" Plug 'ro-n/vim-atcoder'
+
+Plug 'Yggdroot/indentLine'
 call plug#end()
 
 " goyo.vim & limelight.vim
@@ -160,8 +179,10 @@ inoremap <silent><expr> <c-space> coc#refresh()
 " preservim/nerdtree
 nnoremap <leader>n :NERDTreeTabsToggle<CR>
 let g:NERDTreeWinPos     = "right"
-let g:NERDTreeWinSize    = 60
+let g:NERDTreeWinSize    = 35
 let g:NERDTreeShowHidden = 1
+let NERDTreeIgnore       = ['\.pyc$', '__pycache__$']
+
 
 " junegunn/vim-easy-align
 xmap ga <Plug>(EasyAlign)
