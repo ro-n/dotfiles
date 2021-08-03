@@ -84,9 +84,11 @@ Plug 'christoomey/vim-system-copy'
 
 Plug 'jiangmiao/auto-pairs'
 
-" Plug 'ro-n/vim-atcoder'
-
 Plug 'Yggdroot/indentLine'
+Plug 'luochen1990/rainbow'
+
+Plug 'thinca/vim-quickrun'
+Plug 'AndrewRadev/sideways.vim'
 call plug#end()
 
 " goyo.vim & limelight.vim
@@ -148,13 +150,13 @@ let g:dashboard_custom_header =[
     \]
 
 let g:dashboard_custom_shortcut_icon                       = {}
-let g:dashboard_custom_shortcut_icon['last_session']       = '⏳ '
-let g:dashboard_custom_shortcut_icon['find_history']       = '📜 '
-let g:dashboard_custom_shortcut_icon['find_file']          = '📂 '
-let g:dashboard_custom_shortcut_icon['new_file']           = '✨ '
-let g:dashboard_custom_shortcut_icon['change_colorscheme'] = '🍭 '
-let g:dashboard_custom_shortcut_icon['find_word']          = '🈁 '
-let g:dashboard_custom_shortcut_icon['book_marks']         = '🏷️  '
+let g:dashboard_custom_shortcut_icon['last_session']       = '🍂 '
+let g:dashboard_custom_shortcut_icon['find_history']       = '🍊 '
+let g:dashboard_custom_shortcut_icon['find_file']          = '🥧 '
+let g:dashboard_custom_shortcut_icon['new_file']           = '🔥 '
+let g:dashboard_custom_shortcut_icon['change_colorscheme'] = '🎃 '
+let g:dashboard_custom_shortcut_icon['find_word']          = '🐾 '
+let g:dashboard_custom_shortcut_icon['book_marks']         = '🪔 '
 
 " let g:dashboard_custom_section = {
 "   \ 'buffer_list': {
@@ -181,7 +183,7 @@ nnoremap <leader>n :NERDTreeTabsToggle<CR>
 let g:NERDTreeWinPos     = "right"
 let g:NERDTreeWinSize    = 35
 let g:NERDTreeShowHidden = 1
-let NERDTreeIgnore       = ['\.pyc$', '__pycache__$']
+let NERDTreeIgnore       = ['\.pyc$', '__pycache__$', '\.DS_Store', '\.ipynb_checkpoints']
 
 
 " junegunn/vim-easy-align
@@ -190,3 +192,13 @@ nmap ga <Plug>(EasyAlign)
 
 " justinmk/vim-sneak
 highlight link Sneak Search
+
+" Yggdroot/indentLine
+let g:indentLine_fileType = ['python']
+
+" luochen1990/rainbow
+let g:rainbow_active = 1
+
+" AndrewRadev/sideways.vim
+nnoremap <c-h> :SidewaysLeft<cr>
+nnoremap <c-l> :SidewaysRight<cr>
