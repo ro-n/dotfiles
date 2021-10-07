@@ -2,6 +2,8 @@ alt - return : "${HOME}"/scripts/open-iterm.sh
 lctrl - return : "${HOME}"/scripts/open-safari.sh
 
 shift + lctrl + alt - r : "${HOME}"/scripts/restart-yabai.sh
+shift + lctrl + alt - s : "${HOME}"/scripts/start-yabai.sh
+shift + lctrl + alt - e : "${HOME}"/scripts/stop-yabai.sh
 
 alt - h : yabai -m window --focus west
 alt - j : yabai -m window --focus south
