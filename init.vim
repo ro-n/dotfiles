@@ -17,12 +17,12 @@ set expandtab
 " set shiftwidth=2
 " set softtabstop=2
 " set tabstop=2
-" set shiftwidth=4
-" set softtabstop=4
-" set tabstop=4
-set shiftwidth=8
-set softtabstop=8
-set tabstop=8
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
+" set shiftwidth=8
+" set softtabstop=8
+" set tabstop=8
 
 set updatetime=300
 
@@ -60,6 +60,8 @@ Plug 'junegunn/limelight.vim'
 Plug 'junegunn/seoul256.vim'
 Plug 'yuttie/comfortable-motion.vim'
 Plug 'arcticicestudio/nord-vim'
+Plug 'dylanaraps/wal.vim'
+Plug 'dracula/vim'
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -86,6 +88,7 @@ Plug 'justinmk/vim-sneak'
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-entire'
 Plug 'kana/vim-textobj-function'
+Plug 'bps/vim-textobj-python'
 Plug 'christoomey/vim-system-copy'
 
 Plug 'jiangmiao/auto-pairs'
@@ -95,11 +98,17 @@ Plug 'luochen1990/rainbow'
 
 Plug 'thinca/vim-quickrun'
 Plug 'AndrewRadev/sideways.vim'
+
+Plug 'tell-k/vim-autopep8'
+Plug 'bronson/vim-trailing-whitespace'
+
+Plug 'tpope/vim-surround'
+
 call plug#end()
 
 " goyo.vim & limelight.vim
-let g:limelight_conceal_ctermfg = 'DarkGrey' 
-map <ENTER> :Goyo<CR>
+let g:limelight_conceal_ctermfg = 'DarkGrey'
+" map <ENTER> :Goyo<CR>
 function! s:goyo_enter()
   set noshowmode
   set noshowcmd
@@ -118,7 +127,8 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 " seoul256.vim
 let g:seoul256_background = 236
 " colorscheme seoul256
-colorscheme nord
+" colorscheme wal
+colorscheme dracula
 
 " vim-airline/vim-airline
 let g:airline#extensions#tabline#enabled = 1
@@ -184,6 +194,11 @@ endfunction
 
 inoremap <silent><expr> <c-space> coc#refresh()
 
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
+vmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
 " preservim/nerdtree
 nnoremap <leader>n :NERDTreeTabsToggle<CR>
 let g:NERDTreeWinPos     = "right"
@@ -208,3 +223,6 @@ let g:rainbow_active = 1
 " AndrewRadev/sideways.vim
 nnoremap <c-h> :SidewaysLeft<cr>
 nnoremap <c-l> :SidewaysRight<cr>
+
+" tell-k/vim-autopep8
+autocmd FileType python noremap <buffer> <F8> :call Autopep8()<CR>
