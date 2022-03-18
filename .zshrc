@@ -21,7 +21,7 @@ eval source <(/usr/local/bin/starship init zsh --print-full-init)
 export FZF_DEFAULT_OPTS='--height 60% --layout reverse --border'
 
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS"
-    --color=fg:white,bg:#232136,hl:green
-    --color=fg+:yellow,bg+:#232136,hl+:red
+    --color=fg:white,bg:,hl:magenta
+    --color=fg+:yellow,bg+:black,hl+:red
     --color=info:green,prompt:magenta,pointer:yellow
-    --color=marker:green,spinner:red,header:#e0def4"
+    --color=marker:green,spinner:cyan,header:#e0def4"
