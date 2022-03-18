@@ -1,0 +1,53 @@
+add_newline = false
+
+format = "$all$username$character"
+
+[username]
+format = "[\\[](green)[$user](yellow)[@](red)[  ](cyan)[\\]](green) "
+show_always = true
+
+[character]
+success_symbol = "[➜](purple)"
+error_symbol = "[✗](red)"
+
+[python]
+symbol = "👾 "
+
+[lua]
+format = "via [🌕 $version](bold blue) "
+
+
+# --------------------------------------------------------------------
+
+[conda]
+symbol = " "
+
+[directory]
+read_only = " "
+
+[docker_context]
+symbol = " "
+
+[git_branch]
+symbol = " "
+
+[golang]
+symbol = " "
+
+[hg_branch]
+symbol = " "
+
+[java]
+symbol = " "
+
+[memory_usage]
+symbol = " "
+
+[nodejs]
+symbol = " "
+
+[package]
+symbol = " "
+
+[rust]
+symbol = " "
