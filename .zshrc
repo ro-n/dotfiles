@@ -25,3 +25,7 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS"
     --color=fg+:yellow,bg+:black,hl+:red
     --color=info:green,prompt:magenta,pointer:yellow
     --color=marker:green,spinner:cyan,header:#e0def4"
+
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export PATH="/usr/local/opt/openjdk/bin:$PATH"
