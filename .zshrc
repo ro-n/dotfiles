@@ -29,3 +29,4 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS"
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export PATH="/usr/local/opt/openjdk/bin:$PATH"
+export HOMEBREW_NO_AUTO_UPDATE=1
